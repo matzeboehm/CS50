@@ -1,0 +1,3 @@
+1. Get user input
+2. If user input out of range ( n<1 || n>8 ) ask for new input
+3. Iterate over input by placing # or " " depending on level of pyramid
