@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+    {% if api_values %}
+        <div>
+            One share of {{ api_values.name }} (Symbol: {{ api_values.symbol }}) costs {{ api_values.price | usd }}.
+        </div>
+    {% endif %}
+
+{% endblock %}

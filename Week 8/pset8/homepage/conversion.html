@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Conversion Between Units</title>
+
+        <script>
+            // https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript
+            document.addEventListener('DOMContentLoaded', function() {
+                let input = document.querySelector('input');
+                input.addEventListener('keyup', function(event) {
+                    let output_number = document.querySelector('#output_number');
+                    if (input.value) {
+                        let getInputUnit = document.getElementById("inputunit");
+                        let getInputUnitValue = getInputUnit.value;
+
+                        let inputNormalized = 0;
+
+                        switch (getInputUnitValue) {
+                            case "mm":
+                                inputNormalized = input.value * 0.001;
+                                break;
+                            case "cm":
+                                inputNormalized = input.value * 0.01;
+                                break;
+                            case "dm":
+                                inputNormalized = input.value * 0.1;
+                                break;
+                            case "m":
+                                inputNormalized = input.value * 1;
+                                break;
+                            case "km":
+                                inputNormalized = input.value * 1000;
+                                break;
+                            default:
+                                inputNormalized = 1;
+                            }
+
+                        let getOutputUnit = document.getElementById("outputunit");
+                        let getOutputUnitValue = getOutputUnit.value;
+
+                        let OutputNormalized = 0;
+
+                        switch (getOutputUnitValue) {
+                            case "mm":
+                                OutputNormalized = inputNormalized / 0.001;
+                                break;
+                            case "cm":
+                                OutputNormalized = inputNormalized / 0.01;
+                                break;
+                            case "dm":
+                                OutputNormalized = inputNormalized / 0.1;
+                                break;
+                            case "m":
+                                OutputNormalized = inputNormalized / 1;
+                                break;
+                            case "km":
+                                OutputNormalized = inputNormalized / 1000;
+                                break;
+                            default:
+                                OutputNormalized = "";
+                            }
+
+                        if (getOutputUnitValue)
+                        {
+                            if (OutputNormalized > 0.001)
+                            {
+                                output_number.innerHTML = "Output: " + OutputNormalized.toFixed(3) + " " + getOutputUnitValue;
+                            }
+                            else
+                            {
+                                output_number.innerHTML = "Output: " + OutputNormalized.toFixed(5) + " " + getOutputUnitValue;
+                            }
+                        }
+                        else
+                        {
+                            output_number.innerHTML = "";
+                        }
+
+                    }
+                    else {
+                        output_number.innerHTML = "";
+                    }
+                });
+            });
+
+
+        </script>
+
+
+    </head>
+    <body>
+        <br>
+        <heaer>
+            <h1>Conversion Between Units</h1>
+        </heaer>
+        <br>
+
+        <main>
+            <div style="text-align: center;">
+                <div style="display: inline-block; text-align: left;">
+
+                    <p>Choose units and then enter value to convert!</p>
+
+                    <form onsubmit="return false;">
+                        Input:
+                        <input autocomplete="off" autofocus placeholder="Input" type="number" id="input_number" >
+                        <select id="inputunit">
+                        	<option value="none" selected="selected"> -- unit --
+                        	<option value="mm">mm
+                        	<option value="cm">cm
+                        	<option value="dm">dm
+                        	<option value="m">m
+                        	<option value="km">km
+                        </select>
+                    </form>
+
+                    <br>
+
+                    <form onsubmit="return false;">
+                        Convert To: &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+                        <select id="outputunit">
+                        	<option value="none" selected="selected"> -- unit --
+                        	<option value="mm">mm
+                        	<option value="cm">cm
+                        	<option value="dm">dm
+                        	<option value="m">m
+                        	<option value="km">km
+                        </select>
+                    </form>
+
+                    <br>
+
+                    <p id="output_number">Output: </p>
+
+                    <br>
+                    <div style="text-align: center">
+                        <a href="index.html" text-align:center>Return to main page.</a>
+                    </div>
+                    <br>
+
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            Copyright &#169; 2021 by Matthias Böhm
+        </footer>
+
+    </body>
+</html>

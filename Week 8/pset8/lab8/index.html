@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+            // TODO: Add code to check answers to questions
+            // document.addEventListener("DOMContentLoaded", function(){
+            function q1_func(){
+                let ButtonsQ1 = document.querySelector("#question1");
+                ButtonsQ1.addEventListener("click", function(event){
+                document.getElementById("q1_a").style.backgroundColor = "";
+                document.getElementById("q1_b").style.backgroundColor = "";
+                document.getElementById("q1_c").style.backgroundColor = "";
+
+
+                    let clickedItem = event.target.id;
+                    if (clickedItem == "q1_c") {
+                        q1_response.innerHTML = "Correct";
+                        document.getElementById(clickedItem).style.backgroundColor="green";
+                    }
+                    else {
+                        q1_response.innerHTML = "Incorrect";
+                        document.getElementById(clickedItem).style.backgroundColor="red";
+                    }
+                });
+            }
+
+            function q2_func(){
+                let q2_resp = document.getElementById("q2_id").value;
+                if (q2_resp.localeCompare("Monster") == 0) {
+                    q2_response.innerHTML = "Correct";
+                    document.getElementById("q2_id").style.backgroundColor="green"
+                }
+                else if (q2_resp == ""){
+                    q2_response.innerHTML = "";
+                    document.getElementById("q2_id").style.backgroundColor=""
+                }
+                else {
+                    q2_response.innerHTML = "Incorrect";
+                    document.getElementById("q2_id").style.backgroundColor="red"
+                }
+            };
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Which is the biggest beer festival in the world?</h3>
+                <div id="question1">
+                    <form onclick="q1_func(); return false;">
+                        <button id="q1_a">Augustfest</button>
+                        <button id="q1_b">Septemberfest</button>
+                        <button id="q1_c">Octoberfest</button>
+                    </form>
+                </div>
+
+                <p id="q1_response"></p>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>Scottish Wisdom: The better the whisky, the bigger the ...?</h3>
+                <div>
+                    <form>
+                        <input autocomplete="off" autofocus placeholder="Answer" type="text" id="q2_id" >
+                        <button onclick="q2_func(); return false;">SUBMIT</button>
+                    </form>
+                </div>
+                <p id="q2_response"></p>
+            </div>
+
+        </div>
+    </body>
+</html>

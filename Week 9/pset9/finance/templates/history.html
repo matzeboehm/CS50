@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <table class="table" align="center">
+        <tr>
+            <th>Symbol</th>
+            <th>Action</th>
+            <th>Price</th>
+            <th>Shares</th>
+            <th>Time</th>
+        </tr>
+
+        {% if export_shares %}
+            {% for rows in export_shares %}
+                <tr>
+                    <td>{{ rows[0] }}</td>
+                    <td>{{ rows[1] }}</td>
+                    <td>{{ rows[2] | usd }}</td>
+                    <td>{{ rows[3] }}</td>
+                    <td>{{ rows[4] }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            No history available.
+        {% endif %}
+
+
+    </table>
+
+{% endblock %}
