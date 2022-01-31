@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: Process of Elimination.
+
+sort2 uses: Merge Sort
+
+How do you know?: Quickest at largest set of inputs for reversed and random numbers.
+
+sort3 uses: Selection Sort
+
+How do you know?: Is quicker at reversed than sort 1 because it only checks for the smallest number and then puts it in the first position instead of having to change every number at every step for several iterations.
